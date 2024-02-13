@@ -1,6 +1,6 @@
 # Zebra API Overview (Work in Progress)
 
-This API leverages JWT (JSON Web Tokens) for secure authentication, enabling operations on remote `person` records such as retrieval, creation, update, and deletion. This project is currently under development, aiming to execute specific tasks on a remote server and display the outcomes locally. At this stage, we're using "person" as a temporary placeholder to test these operations. As development progresses, we'll introduce the actual operations intended for the final version.
+This API leverages JWT (JSON Web Tokens) for secure authentication, enabling operations on remote `person` records such as retrieval, creation, update, and deletion. This project is currently under development, aiming to execute specific operations on a remote server and display the outcomes locally. At this stage, we're using "person" as a temporary placeholder to test these operations. As development progresses, we'll introduce the actual operations intended for the final version.
 
 ## Authentication
 

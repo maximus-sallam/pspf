@@ -22,9 +22,8 @@ $url = explode( "/", trim($url["path"], "/"));
 // all endpoints start with /person
 // everything else results in a 404 Not Found
 if (empty($url[0]) or ($url[0] !== "person")) {
-    header("HTTP/1.1 404 Not Found");
-    http_response_code(404);
     echo json_encode(["message" => "404 Not Found"]);
+    http_response_code(404); // Not Found
     exit();
 }
 
@@ -34,9 +33,8 @@ $userId = !isset($url[1]) ? 0 : (int)$url[1];
 // authenticate the request:
 try {
     if (!authenticate()) {
-        header("HTTP/1.1 401 Unauthorized");
-        http_response_code(401);
         echo json_encode(["message" => "Unauthorized"]);
+        http_response_code(401); // Unauthorized
         exit();
     }
 } catch (Exception $e) {
@@ -57,10 +55,10 @@ function authenticate(): bool
     if (empty($authHeader)) {
         http_response_code(401); // Unauthorized
         echo json_encode(["message" => "No Authorization header found."]);
-        return false;
+        http_response_code(401); // Unauthorized
     }
 
-    // Now, $authHeader is expected to be the token itself
+    // $authHeader is expected to be the token itself
     $tokenString = $authHeader;
 
     try {
@@ -84,12 +82,12 @@ function authenticate(): bool
             return true;
         } else {
             // Token is invalid
-            throw new Exception("Invalid token.");
+            throw new Exception("Invalid Token.");
         }
-    } catch (Exception $e) {
+    } catch (Exception) {
         // Handle parsing errors or invalid tokens
+        echo json_encode(["message" => "Invalid Token"]);
         http_response_code(401); // Unauthorized
-        echo json_encode(["message" => "Unauthorized" . $e->getMessage()]);
         return false;
     }
 }

@@ -1,0 +1,10 @@
+{
+  "require": {
+    "vlucas/phpdotenv": "^2.4",
+    "ext-pdo": "*"
+  },
+  "autoload": {
+    "psr-4": {
+    }
+  }
+}

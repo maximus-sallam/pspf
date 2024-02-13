@@ -21,7 +21,7 @@ try {
     $envLine = "SECRET=" . $secret . PHP_EOL;
 
     // File path to the .env file
-    $filePath = __DIR__ . '/api/.env';
+    $filePath = __DIR__ . '/.env';
 
     // Read the current contents of the .env file
     $envContents = file_get_contents($filePath);

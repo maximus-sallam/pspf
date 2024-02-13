@@ -1,6 +1,6 @@
 # Zebra API Overview (Work in Progress)
 
-This API leverages JWT (JSON Web Tokens) for secure authentication, enabling operations on remote `person` records such as retrieval, creation, update, and deletion. This project is currently under development, aiming to execute specific tasks on a remote server and display the outcomes locally. At this stage, we're using "person" as a temporary placeholder to test these operations. As development progresses, we'll introduce the actual operations intended for the final version.
+This API leverages JWT (JSON Web Tokens) for secure authentication, enabling operations on remote `person` records such as retrieval, creation, update, and deletion. This project is currently under development, aiming to execute specific operations on a remote server and display the outcomes locally. At this stage, we're using "person" as a temporary placeholder to test these operations. As development progresses, we'll introduce the actual operations intended for the final version.
 
 ## Authentication
 
@@ -30,6 +30,23 @@ $ composer install
 - vlucas/phpdotenv for .env file management.
 - ext-pdo for database interaction.
 - lcobucci/jwt for JWT authentication.
+
+### Set up your environment
+
+Copy the api/.env.example file to api/.env:
+```bash
+$ cp api/.env.example api/.env
+```
+Open the api/.env file in your favorite text editor. Fill in your database credentials, replacing the placeholders with your actual database details. Look for the following lines and update them accordingly:
+```
+DB_HOST=your_database_host
+DB_PORT=your_database_port
+DB_DATABASE=your_database_name
+DB_USERNAME=your_database_username
+DB_PASSWORD=your_database_password
+```
+This will configure the API to connect to your database using the credentials you've provided.
+<br>*Note: This step may be removed in the final iteration.*
 
 ### Generate JWT
 Generate a JWT and a secret key for the .env file by running:

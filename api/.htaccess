@@ -1,0 +1,4 @@
+# Deny web access to all users (Apache 2.4 and newer)
+<RequireAll>
+    Require all denied
+</RequireAll>

@@ -1,7 +1,5 @@
 <?php
 
-use Random\RandomException;
-
 function base64url_encode($data): bool|string
 {
     $b64 = base64_encode($data);
@@ -11,8 +9,8 @@ function base64url_encode($data): bool|string
 
 try {
     $token = base64_encode(random_bytes(16));
-} catch (RandomException $e) {
-    die("Error generating token: " . $e->getMessage());
+} catch (Exception $e) {
+    print($e->getMessage());
 }
 
 try {
@@ -47,7 +45,7 @@ try {
 
     echo "Secret updated in .env file.\n";
 } catch (Exception $e) {
-    die("Error: " . $e->getMessage());
+    print($e->getMessage());
 }
 
 // RFC-defined structure
